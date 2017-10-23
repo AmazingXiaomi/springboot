@@ -18,7 +18,7 @@ $ 官网上直接下载
 $ 本地创建mvn项目然后继承springboot项目即可。
 ``` 
 首先得有个maven基础项目，可以直接使用Maven骨架工程生成Maven骨架Web项目，即man archetype:generate命令：
-<pre><code>mvn archetype:generate -DgroupId=springboot -DartifactId=springboot-helloworld -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false</code><pre>
+<pre><code>mvn archetype:generate -DgroupId=springboot -DartifactId=springboot-helloworld -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false</code></pre>
 
 ## 配置pom
 
@@ -28,26 +28,22 @@ $ 本地创建mvn项目然后继承springboot项目即可。
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
- 
     <groupId>springboot</groupId>
     <artifactId>springboot-helloworld</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springboot-helloworld :: HelloWorld Demo</name>
- 
     <!-- Spring Boot 启动父依赖 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.3.3.RELEASE</version>
     </parent>
- 
     <dependencies>
         <!-- Spring Boot web依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
- 
         <!-- Junit -->
         <dependency>
             <groupId>junit</groupId>
