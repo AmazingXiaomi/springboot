@@ -54,3 +54,58 @@ $ 本地创建mvn项目然后继承springboot项目即可。
 </project>
 ```
 
+---
+
+# springboot 第一个测试类
+
+1. 首先创建一个包，然后新建一个启动类。
+```
+package com.xiaomi.spring;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+/**
+ * Hello world!
+ * springboot 启动类
+ */
+//
+@SpringBootApplication
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+
+//程序启动入口
+        //启动嵌入式的tomcat并初始化spring环境及各个spring组件
+        SpringApplication.run(App.class, args);
+
+    }
+}
+```
+这样运行这个类，我们的项目就运行起来了。
+
+2. 创建一个控制器来测试运行的结果。
+```
+
+package com.xiaomi.spring.web;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * Created by xiaolai on 2017/10/23.
+ */
+@RestController
+public class TestController {
+    @RequestMapping(value = "/")
+    public String test(){
+        return "HelloWorld";
+    }
+}
+```
+***特别注意***所有的控制器和服务层必须和运行主类在同一个包下，而且在主类的子包里面。
+
+
+
+
+
