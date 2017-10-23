@@ -58,6 +58,9 @@ $ 本地创建mvn项目然后继承springboot项目即可。
 
 # springboot 第一个测试类
 
+目录结构如下：
+
+
 1. 首先创建一个包，然后新建一个启动类。
 ```
 package com.xiaomi.spring;
