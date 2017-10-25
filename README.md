@@ -7,8 +7,8 @@ tags:
 
 # 第一章   springboot入门
 
-## springboot能够便捷的创建spring项目，减少了很多配置。下面有两种创建方式。
-[springboot项目搭建](http://www.xiaomiller.cn/)
+springboot能够便捷的创建spring项目，减少了很多配置
+[springboot项目搭建](http://xiaomiller.cn/2017/08/14/springboot/)
 
 
 
