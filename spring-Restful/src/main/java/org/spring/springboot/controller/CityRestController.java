@@ -4,6 +4,8 @@ import org.spring.springboot.domain.City;
 import org.spring.springboot.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,13 +15,13 @@ import java.util.List;
  *
  * Created by bysocket on 07/02/2017.
  */
-@RestController
+@Controller
 public class CityRestController {
 
     @Autowired
     private CityService cityService;
 
-    @RequestMapping(value = "/api/city/{id}", method = RequestMethod.GET)
+ /*   @RequestMapping(value = "/api/city/{id}", method = RequestMethod.GET)
     public City findOneCity(@PathVariable("id") Long id) {
         return cityService.findCityById(id);
     }
@@ -42,5 +44,11 @@ public class CityRestController {
     @RequestMapping(value = "/api/city/{id}", method = RequestMethod.DELETE)
     public void modifyCity(@PathVariable("id") Long id) {
         cityService.deleteCity(id);
+    }*/
+
+    @RequestMapping(value = "/api/city")
+    public String findOneCity(Model model, @RequestParam(value="id", required=false, defaultValue="1") Long id) {
+        model.addAttribute("city", cityService.findCityById(id));
+        return "city";
     }
 }
