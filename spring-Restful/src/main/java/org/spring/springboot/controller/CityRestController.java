@@ -46,9 +46,16 @@ public class CityRestController {
         cityService.deleteCity(id);
     }*/
 
-    @RequestMapping(value = "/api/city")
+    @RequestMapping(value = "/api/city/{id}",method = RequestMethod.GET)
     public String findOneCity(Model model, @RequestParam(value="id", required=false, defaultValue="1") Long id) {
         model.addAttribute("city", cityService.findCityById(id));
         return "city";
     }
+    @RequestMapping(value = "/api/city", method = RequestMethod.GET)
+    public String findAllCity(Model model) {
+        List<City> cityList = cityService.findAllCity();
+        model.addAttribute("cityList",cityList);
+        return "cityList";
+    }
+
 }
