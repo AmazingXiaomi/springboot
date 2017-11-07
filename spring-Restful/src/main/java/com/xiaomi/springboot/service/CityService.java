@@ -1,6 +1,6 @@
-package org.spring.springboot.service;
+package com.xiaomi.springboot.service;
 
-import org.spring.springboot.domain.City;
+import com.xiaomi.springboot.domain.City;
 
 import java.util.List;
 

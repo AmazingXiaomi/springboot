@@ -9,6 +9,8 @@
     <module>spring-hello</module>
     <module>spring-mybatis</module>
     <module>spring-Restful</module>
+    <module>spring-dubbo-server</module>
+    <module>spring-dubbo-client</module>
   </modules>
   <name>springboot</name>
   <parent>

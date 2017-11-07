@@ -1,7 +1,7 @@
-package org.spring.springboot.dao;
+package com.xiaomi.springboot.dao;
 
 import org.apache.ibatis.annotations.Param;
-import org.spring.springboot.domain.City;
+import com.xiaomi.springboot.domain.City;
 
 import java.util.List;
 
