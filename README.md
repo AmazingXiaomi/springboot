@@ -27,7 +27,7 @@ Dubbo 不单单只是高性能的 RPC 调用框架，更是 SOA 服务治理的�
 3. 服务自动发现和注册，可平滑添加或者删除服务提供者。
 我们常常使用 Springboot 暴露 HTTP 服务，并走 JSON 模式。但慢慢量大了，一种 SOA 的治理方案。这样可以暴露出 Dubbo 服务接口，提供给 Dubbo 消费者进行 RPC 调用。下面我们详解下如何集成 Dubbo。
  
- 具体讲解见[springboot与dubbo整合]()
+ 具体讲解见[springboot与dubbo整合](http://xiaomiller.cn/2017/11/08/springboot-dubbo/)
 
 
 
