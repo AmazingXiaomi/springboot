@@ -2,6 +2,8 @@ package com.xiaomi.springboot.controller;
 
 import com.xiaomi.springboot.domain.City;
 import com.xiaomi.springboot.service.CityService;
+import com.xiaomi.springboot.utils.ErrorEnum;
+import com.xiaomi.springboot.utils.GlobleError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,7 +48,10 @@ public class CityRestController {
     }*/
 
     @RequestMapping(value = "/api/city/{id}",method = RequestMethod.GET)
-    public String findOneCity(Model model, @RequestParam(value="id", required=false, defaultValue="1") Long id) {
+    public String findOneCity(Model model, @RequestParam(value="id", required=false, defaultValue="1") Long id) throws GlobleError {
+        if (id.equals(1)){
+            throw  new GlobleError(ErrorEnum.SUCCESS);
+        }
         model.addAttribute("city", cityService.findCityById(id));
         return "city";
     }
