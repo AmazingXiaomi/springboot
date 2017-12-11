@@ -12,6 +12,7 @@
     <module>spring-dubbo-server</module>
     <module>spring-dubbo-client</module>
     <module>spring-mybatis-mutil-datasource</module>
+    <module>spring-redis</module>
   </modules>
   <name>springboot</name>
   <parent>
