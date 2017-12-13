@@ -1,8 +1,11 @@
 package com.xiaomi.springboot;
 
+import com.xiaomi.springboot.utils.JedisConfiguration;
+import com.xiaomi.springboot.utils.JedisUtil;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
 
 /**
  * Spring Boot 应用启动类
@@ -13,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 // mapper 接口类扫描包配置
 @MapperScan("com.xiaomi.springboot.dao")
+
 public class Application {
 
     public static void main(String[] args) {

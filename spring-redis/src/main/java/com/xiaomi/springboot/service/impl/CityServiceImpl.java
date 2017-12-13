@@ -3,6 +3,7 @@ package com.xiaomi.springboot.service.impl;
 import com.xiaomi.springboot.dao.CityDao;
 import com.xiaomi.springboot.domain.City;
 import com.xiaomi.springboot.service.CityService;
+import com.xiaomi.springboot.utils.JedisConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import com.alibaba.fastjson.JSON;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -28,11 +30,19 @@ public class CityServiceImpl implements CityService {
     private CityDao cityDao;
 
     @Autowired
+    private JedisConfiguration jedisConfiguration;
+
+
+    @Autowired
     private RedisTemplate redisTemplate;
     @Override
     public City findCityById(Long id) {
+        Jedis resource = jedisConfiguration.redisPoolFactory().getResource();
         String key= "city_" + id;
-        ValueOperations<String,String> valueOperations = redisTemplate.opsForValue();
+        City city = cityDao.findById(id);
+        resource.set(key,JSON.toJSONString(city));
+        return null;
+      /*  ValueOperations<String,String> valueOperations = redisTemplate.opsForValue();
         Boolean aBoolean = redisTemplate.hasKey(key);
         if (aBoolean){
             String city = valueOperations.get(key);
@@ -43,7 +53,7 @@ public class CityServiceImpl implements CityService {
             valueOperations.set(key, JSON.toJSONString(city),1000, TimeUnit.SECONDS);
             LOGGER.info("CityServiceImpl.findCityById() : 城市插入缓存 >> " + city.toString());
             return city;
-        }
+        }*/
     }
 
     @Override
