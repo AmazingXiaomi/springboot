@@ -13,6 +13,7 @@
     <module>spring-dubbo-client</module>
     <module>spring-mybatis-mutil-datasource</module>
     <module>spring-redis</module>
+      <module>elasticsearch</module>
   </modules>
   <name>springboot</name>
   <parent>
