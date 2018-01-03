@@ -1,5 +1,6 @@
 package com.xiaomi.springboot.domain;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.io.Serializable;
@@ -7,7 +8,7 @@ import java.io.Serializable;
 @Document(indexName="carindex",type="car")
 public class Car implements Serializable{
     private static final long serialVersionUID = -2L;
-
+    @Id
     private Long id;
 
     private String type;

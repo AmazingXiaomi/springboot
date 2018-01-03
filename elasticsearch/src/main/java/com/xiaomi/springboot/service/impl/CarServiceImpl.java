@@ -3,10 +3,8 @@ package com.xiaomi.springboot.service.impl;
 import com.xiaomi.springboot.domain.Car;
 import com.xiaomi.springboot.repository.CarRepository;
 import com.xiaomi.springboot.service.CarService;
-import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
-import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilder;
 import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,12 +32,12 @@ public class CarServiceImpl implements CarService {
     @Override
     public List<Car> search(int pageNumber, int pageSize, String content) {
         Pageable pageable = new PageRequest(pageNumber, pageSize);
-        /*FunctionScoreQueryBuilder add = QueryBuilders.functionScoreQuery().
-                add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery("description", content)),
-                ScoreFunctionBuilders.weightFactorFunction(1000)).
+        /*FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders.functionScoreQuery().
                 add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery("name", content)),
-                ScoreFunctionBuilders.weightFactorFunction(100));*/
-
+                ScoreFunctionBuilders.weightFactorFunction(1000)).
+                add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery("description", content)),
+                ScoreFunctionBuilders.weightFactorFunction(100));
+*/
         // Function Score Query
         FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders.functionScoreQuery()
                 .add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery("name", content)),
