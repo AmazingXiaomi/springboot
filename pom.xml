@@ -14,6 +14,7 @@
     <module>spring-mybatis-mutil-datasource</module>
     <module>spring-redis</module>
       <module>elasticsearch</module>
+      <module>spring-mybatis-redis-annation</module>
   </modules>
   <name>springboot</name>
   <parent>
